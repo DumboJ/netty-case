@@ -1,4 +1,4 @@
-package cn.dumboj.netty.v1;
+package cn.dumboj.netty.sclass.v1;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelHandlerContext;

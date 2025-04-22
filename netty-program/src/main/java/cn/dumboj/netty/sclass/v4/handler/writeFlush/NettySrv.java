@@ -1,4 +1,4 @@
-package cn.dumboj.netty.v4.handler.writeFlush;
+package cn.dumboj.netty.sclass.v4.handler.writeFlush;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.ByteBuf;

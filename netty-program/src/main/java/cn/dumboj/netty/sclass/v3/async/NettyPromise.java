@@ -1,4 +1,4 @@
-package cn.dumboj.netty.v3.async;
+package cn.dumboj.netty.sclass.v3.async;
 
 import io.netty.channel.DefaultEventLoop;
 import io.netty.channel.EventLoop;
