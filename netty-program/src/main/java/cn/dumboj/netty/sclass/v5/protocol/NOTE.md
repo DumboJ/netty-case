@@ -27,6 +27,7 @@
       1. [x] `由于 TCP 粘包问题，ByteBuf 中可能包含多个有效的报文，或者不够一个完整的报文。Netty 会重复回调 decode() 方法`
       2. [x] `ByteToMessageDecoder 还定义了 decodeLast() 方法;decodeLast 在 Channel 关闭后会被调用一次，主要用于处理 ByteBuf 最后剩余的字节数据.有默认实现，特殊需求可重写该方法扩展`
       3. [x] `将ByteBuf转化为消息对象`
+      4. [x] ByteToMessageDecoder 还有一个抽象子类是 ReplayingDecoder。封装了缓冲区的管理，在读取缓冲区数据时，你无须再对字节长度进行检查。因为如果没有足够长度的字节数据，ReplayingDecoder 将终止解码操作;但性能相比较差，不推荐使用
   - 二级解码器
     - MessageToMessageDecoder
       `将pipline中Message对象转化为其它目标类型，I限制传入对象类型，encode方法实际解码为什么类型看具体业务。需要注意的是与MessageToMessageEncoder不同的是，它们的传播方向。`
