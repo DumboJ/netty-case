@@ -45,7 +45,7 @@ public class ClientBoot {
                                     .addLast("chatEncoder",ENCODER)
                                     .addLast("chatDecoder",new ChatByteToMsgDecoder())
                             //回调再其它的 handler 注册绑定后再注册 ChannelInboundHandlerAdapter 回调
-//                           .addLast(new MockClientSendChat("Lily","Tide","Hello, this is my Netty Client Msg."))
+                           .addLast(new MockClientSendChat("Lily","Tide","Hello, this is my Netty Client Msg."))
                            //登录
                            .addLast(new MockClientSendLogin());
                         }
