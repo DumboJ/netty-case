@@ -2,12 +2,13 @@ package cn.dumboj.netty.chatroom.boot;
 
 import cn.dumboj.netty.chatroom.codec.ChatByteToMsgDecoder;
 import cn.dumboj.netty.chatroom.codec.ChatMsgToByteEncoder;
+import cn.dumboj.netty.chatroom.mock.chat.MockServeRecChat;
+import cn.dumboj.netty.chatroom.mock.login.MockServerRecLogin;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.nio.NioEventLoopGroup;
-import io.netty.channel.socket.ServerSocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
@@ -48,7 +49,11 @@ public class ServerBoot {
                                     .addLast("lengthDecoder",new LengthFieldBasedFrameDecoder(1024,7,4,0,0))
                                     .addLast("logging",LOG_HANDLER)
                                     .addLast("chatEncoder",ENCODER)
-                                    .addLast("chatDecoder",new ChatByteToMsgDecoder());
+                                    .addLast("chatDecoder",new ChatByteToMsgDecoder())
+                                    //服务端接收到客户端 chat 请求后响应
+                                    .addLast(new MockServeRecChat())
+                                    //服务端接收到客户端 login 请求后响应
+                                    .addLast(new MockServerRecLogin());
                         }
                     });
             Channel channel = b.bind().sync().channel();

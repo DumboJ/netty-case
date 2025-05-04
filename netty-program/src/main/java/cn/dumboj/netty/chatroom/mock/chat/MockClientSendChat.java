@@ -1,4 +1,4 @@
-package cn.dumboj.netty.chatroom.mock;
+package cn.dumboj.netty.chatroom.mock.chat;
 
 import cn.dumboj.netty.chatroom.message.type.ChatRequestMessage;
 import io.netty.channel.ChannelHandlerContext;
@@ -6,11 +6,11 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class MockChatRequestMessage extends ChannelInboundHandlerAdapter {
+public class MockClientSendChat extends ChannelInboundHandlerAdapter {
     private String from;
     private String to;
     private String content;
-    public MockChatRequestMessage(String from, String to, String content) {
+    public MockClientSendChat(String from, String to, String content) {
         this.from = from;
         this.to = to;
         this.content = content;

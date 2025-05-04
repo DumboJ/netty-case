@@ -6,6 +6,9 @@ import lombok.Data;
 
 import java.util.HashMap;
 import java.util.Map;
+/**
+ * 消息类型和对应的类
+ * */
 @Data
 public class MessageTypeMap {
     public static final Map<Integer, Class<? extends Message>> typeMaps = new HashMap<>();
